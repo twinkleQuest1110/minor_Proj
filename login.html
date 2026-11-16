@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RENTEL | Login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f3f1fc;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+
+        .navbar {
+            background: white;
+            padding: 15px 7%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .navbar-brand {
+            font-size: 27px;
+            font-weight: 800;
+            color: #5b45d6;
+        }
+
+        .home-link {
+            text-decoration: none;
+            color: #5b45d6;
+            font-weight: 600;
+        }
+
+        /* Main Container */
+
+        .login-container {
+            min-height: calc(100vh - 65px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 15px;
+        }
+
+        .login-box {
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(40, 30, 80, 0.12);
+        }
+
+        /* Left Side */
+
+        .welcome-side {
+            width: 42%;
+            background: linear-gradient(145deg, #5b45d6, #211b3d);
+            color: white;
+            padding: 55px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .welcome-side h1 {
+            font-size: 35px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .welcome-side p {
+            color: #e0dcf8;
+            line-height: 1.8;
+        }
+
+        .welcome-side .emoji {
+            font-size: 65px;
+            margin-bottom: 25px;
+        }
+
+        /* Right Side */
+
+        .form-side {
+            width: 58%;
+            padding: 45px 50px;
+        }
+
+        .form-side h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #211b3d;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        /* Role Selection */
+
+        .role-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .role-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .role-btn {
+            flex: 1;
+            padding: 12px 5px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .role-btn.active {
+            background: #eeeaff;
+            border: 2px solid #5b45d6;
+            color: #5b45d6;
+            font-weight: 700;
+        }
+
+        .role-btn:hover {
+            border-color: #5b45d6;
+        }
+
+        /* Inputs */
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            padding: 12px;
+            border-radius: 9px;
+            border: 1px solid #ddd;
+        }
+
+        .form-control:focus {
+            border-color: #5b45d6;
+            box-shadow: 0 0 0 3px rgba(91,69,214,0.12);
+        }
+
+        /* Buttons */
+
+        .submit-btn {
+            width: 100%;
+            background: #5b45d6;
+            color: white;
+            border: none;
+            padding: 13px;
+            border-radius: 9px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #4432b0;
+        }
+
+        .switch-text {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .switch-text button {
+            border: none;
+            background: none;
+            color: #5b45d6;
+            font-weight: 700;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media(max-width: 768px) {
+            .login-box {
+                flex-direction: column;
+            }
+
+            .welcome-side,
+            .form-side {
+                width: 100%;
+            }
+
+            .welcome-side {
+                padding: 35px 25px;
+                text-align: center;
+            }
+
+            .welcome-side .emoji {
+                font-size: 45px;
+                margin-bottom: 10px;
+            }
+
+            .welcome-side h1 {
+                font-size: 27px;
+            }
+
+            .form-side {
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+        <a class="navbar-brand text-decoration-none" href="index01.html">
+            RENTEL.
+        </a>
+
+        <a href="index01.html" class="home-link float-end mt-2">
+            ← Back to Home
+        </a>
+    </nav>
+
+
+    <!-- Login Section -->
+
+    <section class="login-container">
+
+        <div class="login-box">
+
+            <!-- Left Side -->
+
+            <div class="welcome-side">
+
+                <div class="emoji">🎉</div>
+
+                <h1>Welcome to RENTEL!</h1>
+
+                <p>
+                    Celebrate More. Own Less.
+
+                    Rent what you need, when you need it.
+                    Make every moment special without
+                    spending more on ownership.
+                </p>
+
+            </div>
+
+
+            <!-- Right Side -->
+
+            <div class="form-side">
+
+                <h2 id="formHeading">Welcome Back!</h2>
+
+                <p class="subtitle" id="formSubtitle">
+                    Login to continue your journey with RENTEL.
+                </p>
+
+
+                <!-- Role Selection -->
+
+                <p class="role-title">Login As</p>
+
+                <div class="role-options">
+
+                    <button type="button" class="role-btn active"
+                        onclick="selectRole('customer', this)">
+                        👤 Customer
+                    </button>
+
+                    <button type="button" class="role-btn"
+                        onclick="selectRole('renter', this)">
+                        🏪 Renter
+                    </button>
+
+                    <button type="button" class="role-btn"
+                        onclick="selectRole('admin', this)">
+                        ⚙️ Admin
+                    </button>
+
+                </div>
+
+
+                <!-- Login Form -->
+
+                <form id="loginForm">
+
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+
+                        <input type="email" class="form-control"
+                            placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+
+                        <input type="password" class="form-control"
+                            placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="text-end">
+                        <a href="#" class="text-decoration-none"
+                            style="color:#5b45d6; font-size:13px;">
+                            Forgot Password?
+                        </a>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Login
+                    </button>
+
+                </form>
+
+
+                <!-- Sign Up Form -->
+
+                <form id="signupForm" class="hidden">
+
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+
+                        <input type="text" class="form-control"
+                            placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+
+                        <input type="email" class="form-control"
+                            placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+
+                        <input type="password" class="form-control"
+                            placeholder="Create a password" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Confirm Password</label>
+
+                        <input type="password" class="form-control"
+                            placeholder="Confirm your password" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Create Account
+                    </button>
+
+                </form>
+
+
+                <!-- Switch Login / Signup -->
+
+                <div class="switch-text" id="switchArea">
+
+                    Don't have an account?
+
+                    <button type="button" onclick="showSignup()">
+                        Sign Up
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        let selectedRole = "customer";
+
+        const loginForm = document.getElementById("loginForm");
+        const signupForm = document.getElementById("signupForm");
+
+        // Select User Role
+
+        function selectRole(role, button) {
+
+            selectedRole = role;
+
+            document.querySelectorAll(".role-btn").forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            // Admin cannot create a public account
+
+            if (role === "admin") {
+
+                signupForm.classList.add("hidden");
+                loginForm.classList.remove("hidden");
+
+                document.getElementById("formHeading").innerText =
+                    "Admin Login";
+
+                document.getElementById("switchArea").classList.add("hidden");
+
+            } else {
+
+                document.getElementById("formHeading").innerText =
+                    "Welcome Back!";
+
+                document.getElementById("switchArea").classList.remove("hidden");
+
+            }
+
+        }
+
+
+        // Show Signup Form
+
+        function showSignup() {
+
+            if (selectedRole === "admin") {
+                return;
+            }
+
+            loginForm.classList.add("hidden");
+            signupForm.classList.remove("hidden");
+
+            document.getElementById("formHeading").innerText =
+                "Create Account";
+
+            document.getElementById("formSubtitle").innerText =
+                "Join RENTEL and get started.";
+
+            document.getElementById("switchArea").innerHTML =
+                'Already have an account? <button type="button" onclick="showLogin()">Login</button>';
+
+        }
+
+
+        // Show Login Form
+
+        function showLogin() {
+
+            signupForm.classList.add("hidden");
+            loginForm.classList.remove("hidden");
+
+            document.getElementById("formHeading").innerText =
+                selectedRole === "admin" ? "Admin Login" : "Welcome Back!";
+
+            document.getElementById("formSubtitle").innerText =
+                "Login to continue your journey with RENTEL.";
+
+            document.getElementById("switchArea").innerHTML =
+                'Don\'t have an account? <button type="button" onclick="showSignup()">Sign Up</button>';
+
+            if (selectedRole === "admin") {
+                document.getElementById("switchArea").classList.add("hidden");
+            }
+
+        }
+
+
+        // Login Submit
+
+        loginForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            alert("Login requested as " + selectedRole.toUpperCase());
+
+        });
+
+
+        // Signup Submit
+
+        signupForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const password = signupForm.querySelectorAll("input[type='password']");
+
+            if (password[0].value !== password[1].value) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            alert("Registration requested as " + selectedRole.toUpperCase());
+
+        });
+
+    </script>
+
+</body>
+</html>

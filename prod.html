@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RENTEL | Products</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fc;
+            color: #222;
+        }
+
+        /* Navbar */
+        nav {
+            background: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px #00000010;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 800;
+            color: #5b45d6;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+
+        /* Heading */
+        .heading {
+            text-align: center;
+            padding: 55px 20px 30px;
+        }
+
+        .heading h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .heading span {
+            color: #5b45d6;
+        }
+
+        .heading p {
+            color: #777;
+        }
+
+        /* Search */
+        .search {
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .search input {
+            width: 450px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 9px 0 0 9px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search button {
+            padding: 15px 25px;
+            border: none;
+            background: #5b45d6;
+            color: white;
+            border-radius: 0 9px 9px 0;
+            font-weight: 600;
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 25px;
+        }
+
+        .categories a {
+            text-decoration: none;
+            background: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            color: #555;
+            border: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .categories a:first-child {
+            background: #5b45d6;
+            color: white;
+        }
+
+        /* Products */
+        .products {
+            padding: 35px 8% 70px;
+        }
+
+        .products h2 {
+            font-size: 27px;
+            margin-bottom: 30px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px #0000000a;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px #00000015;
+        }
+
+        .card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 20px;
+        }
+
+        .card-info h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .category {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: #5b45d6;
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .price small {
+            color: #888;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .deposit {
+            color: #777;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .rent-btn {
+            display: block;
+            background: #5b45d6;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 18px;
+            font-weight: 600;
+        }
+
+        .rent-btn:hover {
+            background: #4432b0;
+        }
+
+        footer {
+            background: #211b3d;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Responsive */
+        @media(max-width: 900px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav a {
+                margin-left: 8px;
+                font-size: 12px;
+            }
+
+            .heading h1 {
+                font-size: 27px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search input {
+                width: 70%;
+            }
+
+            .products {
+                padding: 30px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">RENTEL.</div>
+
+        <div>
+            <a href="index01.html">Home</a>
+            <a href="prod.html">Products</a>
+            <a href="login.html">Login</a>
+        </div>
+    </nav>
+
+    <!-- Heading -->
+    <section class="heading">
+        <h1>Explore Our <span>Rental Products</span></h1>
+        <p>Find everything you need for your special occasions.</p>
+    </section>
+
+    <!-- Search -->
+    <div class="search">
+        <input type="text" placeholder="Search dresses, decorations, party items...">
+        <button>Search</button>
+    </div>
+
+    <!-- Categories -->
+    <div class="categories">
+        <a href="#">All Products</a>
+        <a href="#">Fashion</a>
+        <a href="#">Party Essentials</a>
+        <a href="#">Decorations</a>
+    </div>
+
+    <!-- Products -->
+    <section class="products">
+
+        <h2>Featured Products</h2>
+
+        <div class="product-grid">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=700" alt="Designer Dress">
+
+                <div class="card-info">
+                    <h3>Designer Party Dress</h3>
+                    <p class="category">Fashion</p>
+                    <div class="price">₹499 <small>/ day</small></div>
+                    <p class="deposit">Security Deposit: ₹1,000</p>
+                    <a href="login.html" class="rent-btn">Rent Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=700" alt="Birthday Decoration">
+
+                <div class="card-info">
+                    <h3>Birthday Decoration Kit</h3>
+                    <p class="category">Decorations</p>
+                    <div class="price">₹299 <small>/ day</small></div>
+                    <p class="deposit">Security Deposit: ₹500</p>
+                    <a href="login.html" class="rent-btn">Rent Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700" alt="Party Lighting">
+
+                <div class="card-info">
+                    <h3>Party Lighting Setup</h3>
+                    <p class="category">Party Essentials</p>
+                    <div class="price">₹399 <small>/ day</small></div>
+                    <p class="deposit">Security Deposit: ₹800</p>
+                    <a href="login.html" class="rent-btn">Rent Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=700" alt="Traditional Outfit">
+
+                <div class="card-info">
+                    <h3>Traditional Occasion Outfit</h3>
+                    <p class="category">Fashion</p>
+                    <div class="price">₹599 <small>/ day</small></div>
+                    <p class="deposit">Security Deposit: ₹1,200</p>
+                    <a href="login.html" class="rent-btn">Rent Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700" alt="Event Decoration">
+
+                <div class="card-info">
+                    <h3>Event Decoration Set</h3>
+                    <p class="category">Decorations</p>
+                    <div class="price">₹249 <small>/ day</small></div>
+                    <p class="deposit">Security Deposit: ₹400</p>
+                    <a href="login.html" class="rent-btn">Rent Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=700" alt="Event Furniture">
+
+                <div class="card-info">
+                    <h3>Event Furniture Set</h3>
+                    <p class="category">Party Essentials</p>
+                    <div class="price">₹799 <small>/ day</small></div>
+                    <p class="deposit">Security Deposit: ₹1,500</p>
+                    <a href="login.html" class="rent-btn">Rent Now</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 RENTEL. Celebrate More. Own Less.</p>
+    </footer>
+
+</body>
+</html>
